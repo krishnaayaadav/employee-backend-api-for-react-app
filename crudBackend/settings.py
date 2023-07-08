@@ -136,3 +136,33 @@ MEDIA_ROOT = BASE_DIR/'media'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 CORS_ORIGIN_ALLOW_ALL =True
+
+
+
+# Rest-Framework Settings
+REST_FRAMEWORK = {
+     # throttle shcemes
+   'DEFAULT_THROTTLE_CLASSES': [
+        'rest_framework.throttling.AnonRateThrottle',
+        'rest_framework.throttling.UserRateThrottle'
+    ],
+    
+    'DEFAULT_THROTTLE_RATES': {
+        'anon': '51/day',
+        'user': '1000/day'
+    },
+
+    # reposne type for testing
+    'TEST_REQUEST_DEFAULT_FORMAT': 'json',
+
+    # coreapi schemen 
+    'DEFAULT_SCHEMA_CLASS': 'rest_framework.schemas.coreapi.AutoSchema',
+
+   
+    
+
+     # pagination class
+     "DEFAULT_PAGINATION_CLASS": 'rest_framework.pagination.PageNumberPagination',
+     'PAGE_SIZE': 13
+
+}

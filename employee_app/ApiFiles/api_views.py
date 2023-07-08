@@ -1,6 +1,7 @@
 
 from employee_app.models import Employee
 from .serializers import EmployeeSerializer
+from .paginations import CustomPaginator
 
 # rest_framework imports
 from rest_framework import status
